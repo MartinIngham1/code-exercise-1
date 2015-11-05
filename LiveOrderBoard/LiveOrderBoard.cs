@@ -29,10 +29,23 @@ namespace CodeExercise
             return orders.Values;
         }
 
-        public IEnumerable<string> GetSummaryInfoLiveOrders()
+        public IEnumerable<string> GetSummaryInfoLiveOrders(OrderType orderType)
         {
-            var summaryInfo = new Dictionary<string, decimal>();
-            return orders.Values.GroupBy(o => o.PricePerKg).Select(o => string.Format("{0} kg for £{1}", o.Sum(x => x.OrderQuantity), o.First().PricePerKg));
+            IEnumerable<Order> orderedOrders = null;
+
+            switch (orderType)
+            {
+                case OrderType.Buy:
+                    orderedOrders = orders.Values.OrderByDescending(o => o.PricePerKg);
+                    break;
+                case OrderType.Sell:
+                    orderedOrders = orders.Values.OrderBy(o => o.PricePerKg);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return orderedOrders.GroupBy(o => o.PricePerKg).Select(o => string.Format("{0} kg for £{1}", o.Sum(x => x.OrderQuantity), o.First().PricePerKg));
         }
     }
 }
