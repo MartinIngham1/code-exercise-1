@@ -11,18 +11,31 @@ namespace CodeExercise.Tests
     class OrderTests
     {
         private Order order;
+        const string UserId = "Test";
+        const string OrderQuantity = "3.5 kg";
 
         [Test]
         public void Order_Should_Contain_User_Id_Field()
         {
             // Arrange
-            const string UserId = "Test";
 
             // Act
-            order = new Order(UserId);
+            order = new Order(UserId, OrderQuantity);
 
             // Assert
             Assert.AreEqual(UserId, order.UserId);
+        }
+
+        [Test]
+        public void Order_Should_Contain_Order_Quantity_Field()
+        {
+            // Arrange
+
+            // Act
+            order = new Order(UserId, OrderQuantity);
+
+            // Assert
+            Assert.AreEqual(OrderQuantity, order.OrderQuantity);
         }
     }
 }

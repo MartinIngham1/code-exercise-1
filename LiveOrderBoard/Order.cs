@@ -8,11 +8,14 @@ namespace CodeExercise
 {
     public class Order
     {
-        public Order(string userId)
+        public Order(string userId, string orderQuantity)
         {
             UserId = userId;
+            OrderQuantity = orderQuantity;
         }
 
         public string UserId { get; private set; }
+
+        public string OrderQuantity { get; private set; }
     }
 }
