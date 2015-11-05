@@ -13,6 +13,13 @@ namespace CodeExercise.Tests
         private Order order;
         const string UserId = "Test";
         const string OrderQuantity = "3.5 kg";
+        const string PricePerKg = "£303";
+
+        [SetUp]
+        public void Init()
+        {
+            order = new Order(UserId, OrderQuantity, PricePerKg);
+        }
 
         [Test]
         public void Order_Should_Contain_User_Id_Field()
@@ -20,7 +27,6 @@ namespace CodeExercise.Tests
             // Arrange
 
             // Act
-            order = new Order(UserId, OrderQuantity);
 
             // Assert
             Assert.AreEqual(UserId, order.UserId);
@@ -32,10 +38,20 @@ namespace CodeExercise.Tests
             // Arrange
 
             // Act
-            order = new Order(UserId, OrderQuantity);
 
             // Assert
             Assert.AreEqual(OrderQuantity, order.OrderQuantity);
+        }
+
+        [Test]
+        public void Order_Should_Contain_Price_Per_Kg_Field()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+            Assert.AreEqual(PricePerKg, order.PricePerKg);
         }
     }
 }
