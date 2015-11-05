@@ -8,11 +8,12 @@ namespace CodeExercise
 {
     public class Order
     {
-        public Order(string userId, string orderQuantity, string pricePerKg)
+        public Order(string userId, string orderQuantity, string pricePerKg, OrderType orderType)
         {
             UserId = userId;
             OrderQuantity = orderQuantity;
             PricePerKg = pricePerKg;
+            OrderType = orderType;
         }
 
         public string UserId { get; private set; }
@@ -20,5 +21,7 @@ namespace CodeExercise
         public string OrderQuantity { get; private set; }
 
         public string PricePerKg { get; private set; }
+
+        public OrderType OrderType { get; set; }
     }
 }

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="LiveOrderBoard.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

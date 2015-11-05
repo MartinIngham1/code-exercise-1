@@ -18,7 +18,7 @@ namespace CodeExercise.Tests
         public void RegisterOrder_Should_Accept_Order_Parameter()
         {
             // Arrange
-            var order = new Order("Test", "3.5 kg", "£303");
+            var order = new Order("Test", "3.5 kg", "£303", OrderType.Buy);
 
             // Act
             board.RegisterOrder(order);
