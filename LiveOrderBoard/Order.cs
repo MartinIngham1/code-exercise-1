@@ -10,6 +10,11 @@ namespace CodeExercise
     {
         public Order(string userId, string orderQuantity, string pricePerKg, OrderType orderType)
         {
+            if (orderType == OrderType.None)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
             UserId = userId;
             OrderQuantity = orderQuantity;
             PricePerKg = pricePerKg;

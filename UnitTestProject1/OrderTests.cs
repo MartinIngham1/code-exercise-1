@@ -65,5 +65,18 @@ namespace CodeExercise.Tests
             // Assert
             Assert.AreEqual(orderType, order.OrderType);
         }
+
+        [Test]
+        public void Constructor_Should_Throw_Exception_If_Order_Type_Is_Not_Initialized()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => 
+                order = new Order(userId, orderQuantity, pricePerKg, OrderType.None)
+            );
+        }
     }
 }
