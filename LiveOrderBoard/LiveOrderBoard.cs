@@ -24,9 +24,15 @@ namespace CodeExercise
             orders.Remove(orderId);
         }
 
-        public IEnumerable GetOrders()
+        public IEnumerable<Order> GetOrders()
         {
             return orders.Values;
+        }
+
+        public IEnumerable<string> GetSummaryInfoLiveOrders()
+        {
+            var summaryInfo = new Dictionary<string, decimal>();
+            return orders.Values.GroupBy(o => o.PricePerKg).Select(o => string.Format("{0} kg for £{1}", o.Sum(x => x.OrderQuantity), o.First().PricePerKg));
         }
     }
 }

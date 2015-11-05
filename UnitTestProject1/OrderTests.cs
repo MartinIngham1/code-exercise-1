@@ -12,8 +12,8 @@ namespace CodeExercise.Tests
     {
         private Order order;
         const string userId = "Test";
-        const string orderQuantity = "3.5 kg";
-        const string pricePerKg = "£303";
+        const double orderQuantity = 3.5;
+        decimal pricePerKg = 303;
         const OrderType orderType = OrderType.Buy;
 
         [SetUp]
